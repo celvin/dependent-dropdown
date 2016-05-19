@@ -39,8 +39,11 @@
         settings = $.extend(settings, opts);
         if (sel !== null && sel.length && id.toString() === sel) {
             settings.selected = "selected";
+            $($el).append($('<option selected value="'+settings.value+'">'+settings.text+"</option>"));
+        }else{
+            //$("<option/>", settings).appendTo($el);
+            $($el).append($('<option>', settings));
         }
-        $("<option/>", settings).appendTo($el);
     };
 
     setParams = function (props, vals) {
